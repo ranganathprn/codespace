@@ -1,4 +1,4 @@
-#Scenario-1 using postgresql Driver
+#Scenario-1 using postgresql Driver (Not Working Connectin timeout)
 #Placed the postgresql driver in s3 and configure in DependentJars path in glue job s3://<bucket>/lib/postgresql-42.2.23.jar
 
 jdbc_url= 'jdbc:postgresql://<hostname>:5432/postgres'
@@ -12,7 +12,7 @@ df = spark.read.jdbc(url=jdbc_url,table=table,properties=db_properties)
 print(df)
 
 
-#Scenario-2
+#Scenario-2 (Working approach)
 from py4j.java_gateway import java_import
 
 def getDBConnection():
